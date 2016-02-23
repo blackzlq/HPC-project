@@ -1,0 +1,110 @@
+Sender: LSF System <lsfadmin@compute-0-007>
+Subject: Job 586603: <Liqin-project> in cluster <mghpcc_cluster1> Done
+
+Job <Liqin-project> was submitted from host <discovery2> by user <zhang.liq> in cluster <mghpcc_cluster1>.
+Job was executed on host(s) <compute-0-007>, in queue <ht-10g>, as user <zhang.liq> in cluster <mghpcc_cluster1>.
+</home/zhang.liq> was used as the home directory.
+</home/zhang.liq/project> was used as the working directory.
+Started at Sun Feb 21 16:24:57 2016
+Results reported at Sun Feb 21 16:24:59 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/sh
+#BSUB -J Liqin-project
+#BSUB -o out_file
+#BSUB -e error_file
+#BSUB -n 1
+#BSUB -q ht-10g
+
+
+./test 
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :               0.97 sec.
+    Max Memory :             14 MB
+    Average Memory :         14.00 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               57 MB
+
+    Max Processes :          1
+    Max Threads :            1
+
+The output (if any) follows:
+
+0.01--7.45677e+06
+0.02--7.25429e+06
+0.03--6.92861e+06
+0.04--6.49467e+06
+0.05--5.97198e+06
+0.06--5.38333e+06
+0.07--4.75325e+06
+0.08--4.10654e+06
+0.09--3.46679e+06
+0.1--2.85508e+06
+0.11--2.28897e+06
+0.12--1.78179e+06
+0.13--1.34229e+06
+0.14--974672
+0.15--678891
+0.16--451260
+0.17--285211
+0.18--172179
+0.19--102487
+0.2--66185.3
+0.21--53770.9
+0.22--56749.6
+0.23--68015.3
+0.24--82048.5
+0.25--94948.9
+0.26--104325
+0.27--109082
+0.28--109149
+0.29--105175
+0.3--98235.8
+0.31--89575.6
+0.32--80400.5
+0.33--71730.1
+0.34--64312
+0.35--58590.6
+0.36--54721.4
+0.37--52616
+0.38--52008.4
+0.39--52525.2
+0.4--53754.6
+0.41--55303
+0.42--56837.2
+0.43--58109.4
+0.44--58966.5
+0.45--59345.2
+0.46--59257.4
+0.47--58769.8
+0.48--57980.9
+0.49--56998.8
+0.5--55923.9
+0.51--54836.3
+0.52--53788.4
+0.53--52804.1
+0.54--51882
+0.55--51003.2
+0.56--50137.5
+0.57--49253.7
+0.58--48324.8
+0.59--47333.7
+0.6--46274.2
+ total time is 0.92
+
+
+PS:
+
+Read file <error_file> for stderr output of this job.
+
