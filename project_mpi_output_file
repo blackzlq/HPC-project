@@ -1,0 +1,138 @@
+Sender: LSF System <lsfadmin@compute-0-007>
+Subject: Job 602470: <Liqin-project> in cluster <mghpcc_cluster1> Done
+
+Job <Liqin-project> was submitted from host <discovery2> by user <zhang.liq> in cluster <mghpcc_cluster1>.
+Job was executed on host(s) <6*compute-0-007>, in queue <ht-10g>, as user <zhang.liq> in cluster <mghpcc_cluster1>.
+                            <5*compute-0-004>
+</home/zhang.liq> was used as the home directory.
+</home/zhang.liq/project> was used as the working directory.
+Started at Mon Mar 14 07:43:46 2016
+Results reported at Mon Mar 14 07:43:47 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/sh
+#BSUB -J Liqin-project
+#BSUB -o project_mpi_output_file
+#BSUB -e project_mpi_error_file
+#BSUB -n 11
+#BSUB -R "span[ptile=6]"
+#BSUB -q ht-10g
+#BSUB cwd /home/zhang.liq/project/
+work=/home/zhang.liq/project/
+cd $work
+
+tempfile1=hostlistrun
+tempfile2=hostlist-tcp
+
+echo $LSB_MCPU_HOST > $tempfile1
+declare -a hosts
+read -a hosts < ${tempfile1}
+for ((i=0;i<${#hosts[@]};i+=2));
+  do
+   HOST=${hosts[$i]}
+   CORE=${hosts[(($i+1))]}
+	echo $HOST:$CORE >> $tempfile2
+done
+
+mpirun -np 11 -prot -TCP -lsf ./mpi
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :               3.95 sec.
+    Max Memory :             14 MB
+    Average Memory :         14.00 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               57 MB
+
+    Max Processes :          1
+    Max Threads :            1
+
+The output (if any) follows:
+
+Host 0 -- ip 10.100.8.47 -- ranks 0 - 5
+Host 1 -- ip 10.100.8.44 -- ranks 6 - 10
+
+ host | 0    1
+======|===========
+    0 : SHM  TCP
+    1 : TCP  SHM
+
+ Prot -  All Intra-node communication is: SHM
+ Prot -  All Inter-node communication is: TCP
+
+7.45677e+06
+7.25429e+06
+6.92861e+06
+6.49467e+06
+5.97198e+06
+5.38333e+06
+4.75325e+06
+4.10654e+06
+3.46679e+06
+2.85508e+06
+2.28897e+06
+1.78179e+06
+1.34229e+06
+974672
+678891
+451260
+285211
+172179
+102487
+66185.3
+53770.9
+56749.6
+68015.3
+82048.5
+94948.9
+104325
+109082
+109149
+105175
+98235.8
+89575.6
+80400.5
+71730.1
+64312
+58590.6
+54721.4
+52616
+52008.4
+52525.2
+53754.6
+55303
+56837.2
+58109.4
+58966.5
+59345.2
+59257.4
+58769.8
+57980.9
+56998.8
+55923.9
+54836.3
+53788.4
+52804.1
+51882
+51003.2
+50137.5
+49253.7
+48324.8
+47333.7
+46274.2
+ total time is 0.204802 sec
+
+
+PS:
+
+Read file <project_mpi_error_file> for stderr output of this job.
+
