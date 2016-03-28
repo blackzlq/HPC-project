@@ -1,0 +1,420 @@
+Sender: LSF System <lsfadmin@compute-0-005>
+Subject: Job 613886: <Liqin-project> in cluster <mghpcc_cluster1> Done
+
+Job <Liqin-project> was submitted from host <discovery2> by user <zhang.liq> in cluster <mghpcc_cluster1>.
+Job was executed on host(s) <6*compute-0-005>, in queue <ht-10g>, as user <zhang.liq> in cluster <mghpcc_cluster1>.
+                            <6*compute-0-006>
+                            <4*compute-0-004>
+</home/zhang.liq> was used as the home directory.
+</home/zhang.liq/project> was used as the working directory.
+Started at Mon Mar 28 15:52:18 2016
+Results reported at Mon Mar 28 15:52:19 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/sh
+#BSUB -J Liqin-project
+#BSUB -o project_mpi2_output_file
+#BSUB -e project_mpi2_error_file
+#BSUB -n 16
+#BSUB -R "span[ptile=6]"
+#BSUB -q ht-10g
+#BSUB cwd /home/zhang.liq/project/
+work=/home/zhang.liq/project/
+cd $work
+
+tempfile1=hostlistrun
+tempfile2=hostlist-tcp
+
+echo $LSB_MCPU_HOST > $tempfile1
+declare -a hosts
+read -a hosts < ${tempfile1}
+for ((i=0;i<${#hosts[@]};i+=2));
+  do
+   HOST=${hosts[$i]}
+   CORE=${hosts[(($i+1))]}
+	echo $HOST:$CORE >> $tempfile2
+done
+
+mpirun -np 16 -prot -TCP -lsf ./mpi2
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :               4.42 sec.
+    Max Memory :             14 MB
+    Average Memory :         14.00 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               59 MB
+
+    Max Processes :          1
+    Max Threads :            1
+
+The output (if any) follows:
+
+Host 0 -- ip 10.100.8.45 -- ranks 0 - 5
+Host 1 -- ip 10.100.8.46 -- ranks 6 - 11
+Host 2 -- ip 10.100.8.44 -- ranks 12 - 15
+
+ host | 0    1    2
+======|================
+    0 : SHM  TCP  TCP
+    1 : TCP  SHM  TCP
+    2 : TCP  TCP  SHM
+
+ Prot -  All Intra-node communication is: SHM
+ Prot -  All Inter-node communication is: TCP
+
+7.45677e+06
+7.25429e+06
+6.92861e+06
+6.49467e+06
+5.97198e+06
+5.38333e+06
+4.75325e+06
+4.10654e+06
+3.46679e+06
+2.85508e+06
+2.28897e+06
+1.78179e+06
+1.34229e+06
+974672
+678891
+451260
+285211
+172179
+102487
+66185.3
+53770.9
+56749.6
+68015.3
+82048.5
+94948.9
+104325
+109082
+109149
+105175
+98235.8
+89575.6
+80400.5
+71730.1
+64312
+58590.6
+54721.4
+52616
+52008.4
+52525.2
+53754.6
+55303
+56837.2
+58109.4
+58966.5
+59345.2
+59257.4
+58769.8
+57980.9
+56998.8
+55923.9
+54836.3
+53788.4
+52804.1
+51882
+51003.2
+50137.5
+49253.7
+48324.8
+47333.7
+46274.2
+ total time is 0.108642 sec
+
+
+PS:
+
+Read file <project_mpi2_error_file> for stderr output of this job.
+
+Sender: LSF System <lsfadmin@compute-0-005>
+Subject: Job 613888: <Liqin-project> in cluster <mghpcc_cluster1> Done
+
+Job <Liqin-project> was submitted from host <discovery2> by user <zhang.liq> in cluster <mghpcc_cluster1>.
+Job was executed on host(s) <6*compute-0-005>, in queue <ht-10g>, as user <zhang.liq> in cluster <mghpcc_cluster1>.
+                            <5*compute-0-004>
+</home/zhang.liq> was used as the home directory.
+</home/zhang.liq/project> was used as the working directory.
+Started at Mon Mar 28 15:53:56 2016
+Results reported at Mon Mar 28 15:53:57 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/sh
+#BSUB -J Liqin-project
+#BSUB -o project_mpi2_output_file
+#BSUB -e project_mpi2_error_file
+#BSUB -n 11
+#BSUB -R "span[ptile=6]"
+#BSUB -q ht-10g
+#BSUB cwd /home/zhang.liq/project/
+work=/home/zhang.liq/project/
+cd $work
+
+tempfile1=hostlistrun
+tempfile2=hostlist-tcp
+
+echo $LSB_MCPU_HOST > $tempfile1
+declare -a hosts
+read -a hosts < ${tempfile1}
+for ((i=0;i<${#hosts[@]};i+=2));
+  do
+   HOST=${hosts[$i]}
+   CORE=${hosts[(($i+1))]}
+	echo $HOST:$CORE >> $tempfile2
+done
+
+mpirun -np 11 -prot -TCP -lsf ./mpi2
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :               3.75 sec.
+    Max Memory :             14 MB
+    Average Memory :         14.00 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               59 MB
+
+    Max Processes :          1
+    Max Threads :            1
+
+The output (if any) follows:
+
+Host 0 -- ip 10.100.8.45 -- ranks 0 - 5
+Host 1 -- ip 10.100.8.44 -- ranks 6 - 10
+
+ host | 0    1
+======|===========
+    0 : SHM  TCP
+    1 : TCP  SHM
+
+ Prot -  All Intra-node communication is: SHM
+ Prot -  All Inter-node communication is: TCP
+
+7.45677e+06
+7.25429e+06
+6.92861e+06
+6.49467e+06
+5.97198e+06
+5.38333e+06
+4.75325e+06
+4.10654e+06
+3.46679e+06
+2.85508e+06
+2.28897e+06
+1.78179e+06
+1.34229e+06
+974672
+678891
+451260
+285211
+172179
+102487
+66185.3
+53770.9
+56749.6
+68015.3
+82048.5
+94948.9
+104325
+109082
+109149
+105175
+98235.8
+89575.6
+80400.5
+71730.1
+64312
+58590.6
+54721.4
+52616
+52008.4
+52525.2
+53754.6
+55303
+56837.2
+58109.4
+58966.5
+59345.2
+59257.4
+58769.8
+57980.9
+56998.8
+55923.9
+54836.3
+53788.4
+52804.1
+51882
+51003.2
+50137.5
+49253.7
+48324.8
+47333.7
+46274.2
+ total time is 0.164777 sec
+
+
+PS:
+
+Read file <project_mpi2_error_file> for stderr output of this job.
+
+Sender: LSF System <lsfadmin@compute-0-005>
+Subject: Job 613889: <Liqin-project> in cluster <mghpcc_cluster1> Done
+
+Job <Liqin-project> was submitted from host <discovery2> by user <zhang.liq> in cluster <mghpcc_cluster1>.
+Job was executed on host(s) <7*compute-0-005>, in queue <ht-10g>, as user <zhang.liq> in cluster <mghpcc_cluster1>.
+                            <7*compute-0-006>
+                            <7*compute-0-004>
+</home/zhang.liq> was used as the home directory.
+</home/zhang.liq/project> was used as the working directory.
+Started at Mon Mar 28 15:54:38 2016
+Results reported at Mon Mar 28 15:54:39 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/sh
+#BSUB -J Liqin-project
+#BSUB -o project_mpi2_output_file
+#BSUB -e project_mpi2_error_file
+#BSUB -n 21
+#BSUB -R "span[ptile=7]"
+#BSUB -q ht-10g
+#BSUB cwd /home/zhang.liq/project/
+work=/home/zhang.liq/project/
+cd $work
+
+tempfile1=hostlistrun
+tempfile2=hostlist-tcp
+
+echo $LSB_MCPU_HOST > $tempfile1
+declare -a hosts
+read -a hosts < ${tempfile1}
+for ((i=0;i<${#hosts[@]};i+=2));
+  do
+   HOST=${hosts[$i]}
+   CORE=${hosts[(($i+1))]}
+	echo $HOST:$CORE >> $tempfile2
+done
+
+mpirun -np 21 -prot -TCP -lsf ./mpi2
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :               6.08 sec.
+    Max Memory :             14 MB
+    Average Memory :         14.00 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               59 MB
+
+    Max Processes :          1
+    Max Threads :            1
+
+The output (if any) follows:
+
+Host 0 -- ip 10.100.8.45 -- ranks 0 - 6
+Host 1 -- ip 10.100.8.46 -- ranks 7 - 13
+Host 2 -- ip 10.100.8.44 -- ranks 14 - 20
+
+ host | 0    1    2
+======|================
+    0 : SHM  TCP  TCP
+    1 : TCP  SHM  TCP
+    2 : TCP  TCP  SHM
+
+ Prot -  All Intra-node communication is: SHM
+ Prot -  All Inter-node communication is: TCP
+
+7.45677e+06
+7.25429e+06
+6.92861e+06
+6.49467e+06
+5.97198e+06
+5.38333e+06
+4.75325e+06
+4.10654e+06
+3.46679e+06
+2.85508e+06
+2.28897e+06
+1.78179e+06
+1.34229e+06
+974672
+678891
+451260
+285211
+172179
+102487
+66185.3
+53770.9
+56749.6
+68015.3
+82048.5
+94948.9
+104325
+109082
+109149
+105175
+98235.8
+89575.6
+80400.5
+71730.1
+64312
+58590.6
+54721.4
+52616
+52008.4
+52525.2
+53754.6
+55303
+56837.2
+58109.4
+58966.5
+59345.2
+59257.4
+58769.8
+57980.9
+56998.8
+55923.9
+54836.3
+53788.4
+52804.1
+51882
+51003.2
+50137.5
+49253.7
+48324.8
+47333.7
+46274.2
+ total time is 0.102986 sec
+
+
+PS:
+
+Read file <project_mpi2_error_file> for stderr output of this job.
+

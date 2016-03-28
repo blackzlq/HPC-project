@@ -91,7 +91,7 @@ cout<<endl;
     if(rank==0)
     {
 
-        for(i=1;i<11;i++)
+        for(i=1;i<numprocessor;i++)
         {
             
             MPI_Recv(&outputQ[(i-1)*step],step,MPI_DOUBLE,i,0,MPI_COMM_WORLD,&status);
@@ -132,14 +132,14 @@ cout<<endl;
     MPI_Barrier(MPI_COMM_WORLD);
 
 	end_time = MPI_Wtime();
-    MPI_Finalize();
+    //MPI_Finalize();
     if(rank==0)
     {
         cout<<" total time is "<<(end_time-start_time)<<" sec"<<endl;
         
     }
 	
-    //MPI_Finalize();
+    MPI_Finalize();
 
 }
 
